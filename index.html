@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=0.5">
+  <meta charset="UTF-8">
+  <title>Royal Lawrence Vet</title>
+  <link rel="icon" href="royal.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+
+body {
+
+  * {
+      box-sizing: border-box;
+    }
+
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: url('RL\ banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 25px;
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.site-header {
+  background:#4169E1;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 1vw;
+}
+
+.logo {
+  padding: 20px 35px;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.logo-img {
+  height: 60px;
+  width: 40px;
+  display: flex;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight:600;
+}
+
+.set li {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.set li a {
+  color: white;
+  text-decoration: none;
+  background-color: #4169E1;
+  padding: 15px 30px;
+    border: none;
+  font-weight: 650;
+    font-size: 15px;
+    margin-top: 20px;
+    border-radius: 70px;
+  text-shadow: none;
+}
+
+.hero {
+  padding: 100px 20px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+  color: #fff;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero button {
+  background: #4169E1;
+  padding: 15px 30px;
+  border: none;
+  color: #fff;
+  font-weight: 650;
+  font-size: 15px;
+  margin-top: 20px;
+  border-radius: 70px;
+}
+
+.hero button a {
+  color: #fff;
+}
+
+.about {
+  padding: 60px 20px;
+  background: white;
+  font-size: 18px;
+}
+
+h2 {
+  border-bottom: 3px solid #4169E1;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+h3 {
+  border-bottom: 3px solid white;
+  color: white;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 20px 20px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+p {
+  font-size: 1vw;
+  font-family: verdana;
+  font-weight: light;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.placeholder {
+  size: 60px;
+}
+
+.about .call-btn {
+  background: #4169E1;
+  color: white;
+  padding: 15px;
+  border: none;
+  margin-top: 20px;
+}
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-down-icon {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 0.8s ease;
+  width: 40px;
+  height: auto;
+}
+
+.slide-down-icon.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact {
+  padding: 20px;
+}
+
+.services {
+  padding: 60px 20px;
+  background: white;
+  font-size: 18px;
+  gap: 20px;
+}
+
+.call-btn {
+  background: #4169E1;
+  color: white;
+  padding: 13.5px;
+  border: 1px;
+  font-weight: 600;
+  margin-top: 20px;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px rgb(151, 151, 151);
+  cursor: pointer;
+}
+
+.contact {
+  padding: 60px 20px;
+  background: white;
+  font-size: 18px;
+}
+
+.footer {
+  padding: 40px 20px;
+  background: #eee;
+  text-align: center;
+}
+
+.Omodal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .Omodal-content {
+      background: #fff;
+      width: 90%;
+      max-width: 700px;
+      max-height: 95vh;
+      overflow-y: auto;
+      border-radius: 10px;
+      position: relative;
+      padding: 20px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .product {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    #size {
+      width: 60px;
+      height: 25px;
+      color: #fff;
+      background-color: #4169E1;
+      border: none;
+      border-radius: 1px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .quantity button {
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      background-color: #4169E1;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .quantity input {
+      width: 30px;
+      text-align: center;
+      margin: 0 4px;
+      pointer-events: none;
+      background-color: #f0f0f0;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .form-row input,
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      flex: 1;
+      padding: 8px;
+      margin: 8px 0;
+      width: 100%;
+    }
+
+    #qty1,
+    #qty2,
+    #qty0 {
+    width: 70%;
+    height: 20%;
+    padding: 6px 8px;
+    margin-left: 6px;
+    margin-right: 6px;
+    }
+
+    .terms {
+      margin-top: 15px;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #4169E1;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-image: url(RL\ 4.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: inherit;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  background-color: #4169E1;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    width: 25rem;
+  }
+  body {
+    background-size: 100%;
+  }
+}
+
+    .social-icons {
+      margin: 10px 0;
+      text-align: center;
+    }
+    .social-icons a {
+      color: black;
+      font-size: 24px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #4169e1;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      alert("Best view : Landscape (rotate your device)")
+    }
+  </script>
+<header class="site-header">
+    <div class="logo">ROYAL LAWRENCE VETERINARY</div>
+    <img src="RL LOGO.png" alt="vet logo" class="slide-down-icon">
+    <nav>
+      <ul>
+        <li><a href="#logo">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    window.addEventListener("scroll",function() {
+      const elements = document.querySelectorAll(".slide-down-icon");
+      elements.forEach(el=> {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      })
+    })
+  </script>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Guaranteed Livestock<br>Health</h1>
+      <div class="set">
+  <li><a href="javascript:void(0)" onclick="openAppointmentModal()">Set an appointment</a></li>
+      </div>
+    </div>
+  </section>
+  <div class="slide-in">
+    <h3>About</h3>
+    <section class="about" id="about">
+      <h2 class="slide-in">What we offer</h2>
+      <p class="slide-in">Broad spectrum antibiotics, vitamins and supplements including...
+        Anti-coccidial,Bactericidal,Fungicidal and Virucidal cures and preventions of Gumboro,Fowl thyphoid,Coccidiosis,Fowl Cholera and New Castle disease of Poultry.
+        As we
+        also
+        specialize in the
+        selling of imported animal feeds,additives,medication and essentials.</p>
+      <button class="call-btn">For emergencies call: +234-803-044-1358</button>
+    </section>
+  </div>
+
+  <script>
+    window.addEventListener("scroll",function() {
+      const elements = document.querySelectorAll(".slide-in");
+      elements.forEach(el=> {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      })
+    })
+  </script>
+
+  <div class="slide-in">
+    <h3>Services</h3>
+    <section class="services" id="services">
+      <li>
+        <h2>Royal Combact</h2>
+        <p>Available In - [200ml - 5L]</p>
+        <p>Prices range from &#8358;849.99 - &#8358;8,199.99</p>
+      </li>
+
+      <li>
+        <h2>Royal Solution</h2>
+        <p>Available In - [200ml - 5L]</p>
+        <p>Prices range from &#8358;499.99 - &#8358;4,199.99</p>
+      </li>
+      <button class="call-btn" onclick="openOrderModal()">Order Now</button>
+    </section>
+  </div>
+
+  <div id="orderModal" class="Omodal">
+    <div class="Omodal-content">
+      <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+      <form id="orderForm">
+        <h2>Select Products</h2>
+        <div class="product">
+          <label><input type="checkbox" class="product-check" data-index="0" /> Royal Solution</label>
+          <button type="button" onclick="changeQty(0, -1)">
+            <select id="size">
+              <option>200ml</option>
+              <option>500ml</option>
+              <option>1L</option>
+              <option>2L</option>
+              <option>5L</option>
+            </select>
+          </button>
+          <div class="quantity">
+            <button type="button" onclick="changeQty(0, -1)">-</button>
+            <input type="text" id="qty0" value="0" readonly />
+            <button type="button" onclick="changeQty(0, 1)">+</button>
+          </div>
+          <span>&#8358;499.99</span>
+        </div>
+        <div class="product">
+          <label><input type="checkbox" class="product-check" data-index="1" /> Royal Combact</label>
+          <button type="button" onclick="changeQty(0, -1)">
+            <select id="size">
+              <option>200ml</option>
+              <option>500ml</option>
+              <option>1L</option>
+              <option>2L</option>
+              <option>5L</option>
+            </select>
+          </button>
+          <div class="quantity">
+            <button type="button" onclick="changeQty(1, -1)">-</button>
+            <input type="text" id="qty1" value="0" readonly />
+            <button type="button" onclick="changeQty(1, 1)">+</button>
+          </div>
+          <span>&#8358;849.99</span>
+        </div>
+        <div class="total">Total: <strong id="totalAmount">&#8358;0.00</strong></div>
+        <div class="form-row">
+          <input type="text" placeholder="First Name" required autocomplete="on" />
+          <input type="text" placeholder="Last Name" required autocomplete="on" />
+        </div>
+        <input type="tel" placeholder="Phone Number" required autocomplete="on" />
+        <input type="email" placeholder="Email Address" required autocomplete="on" />
+        <input type="text" placeholder="Custom Order (optional)" autocomplete="on" />
+        <input type="text" placeholder="Shipping Address" autocomplete="on" />
+        <div class="form-row">
+          <input type="text" placeholder="City" autocomplete="on" />
+          <input type="text" placeholder="State/Province" autocomplete="on" />
+        </div>
+        <div class="form-row">
+          <input type="number" placeholder="Zip Code" autocomplete="on" />
+          <input type="text" placeholder="Country" autocomplete="on" />
+        </div>
+        <div class="terms">
+          <label><input type="checkbox" required /> <a href="Terms.html">I agree to Terms of Service and Privacy Policy.</a></label>
+        </div>
+        <button type="submit">Submit Order</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const prices = [499.99, 849.99,];
+    let quantities = [0, 0,];
+
+    function openOrderModal() {
+      document.getElementById("orderModal").style.display = "flex";
+    }
+
+    function closeOrderModal() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const Omodal = document.getElementById("orderModal");
+      if (event.target === Omodal) {
+        closeOrderModal();
+      }
+    }
+
+    function changeQty(index, delta) {
+      const checkbox = document.querySelectorAll(".product-check")[index];
+      checkbox.checked = true;
+      quantities[index] = Math.max(0, quantities[index] + delta);
+      document.getElementById("qty" + index).value = quantities[index];
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      let total = 0;
+      document.querySelectorAll(".product-check").forEach((check, i) => {
+        if (check.checked) {
+          total += prices[i] * quantities[i];
+        } else {
+          quantities[i] = 0;
+          document.getElementById("qty" + i).value = 0;
+        }
+      });
+      document.getElementById("totalAmount").textContent =  total.toFixed(2); + "Naira";
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const checks = document.querySelectorAll(".product-check");
+  const orderLines = [];
+  checks.forEach((check, i) => {
+    if (check.checked && quantities[i] > 0) {
+      orderLines.push(`${check.parentElement.textContent.trim()}: Qty ${quantities[i]} = &#8358;${(prices[i] * quantities[i]).toFixed(2)}`);
+    }
+  });
+
+  const fields = document.querySelectorAll("#orderForm input");
+  const formData = Array.from(fields).map(f => `${f.placeholder || f.name}: ${f.value.trim()}`).join("\n");
+
+  const message = `Customer Info:${formData}`;
+
+  const encodedMsg = encodeURIComponent(message);
+
+  const whatsappURL = `https://wa.me/2348030441358?text=${encodedMsg}`;
+
+  const emailURL = `mailto:royallawrenceofficial@gmail.com?subject=New Order&body=${encodedMsg}`;
+
+  window.open(whatsappURL, "_blank");
+  window.open(emailURL, "_blank");
+
+  closeOrderModal();
+});
+</script>
+
+<script>
+  document.getElementById("name").addEventListener("input", function () {
+    localStorage.setItem("savedName", this.value);
+  });
+
+  document.getElementById("email").addEventListener("input", function () {
+    localStorage.setItem("savedEmail", this.value);
+  });
+
+  window.onload = function () {
+    if (localStorage.getItem("savedName")) {
+      document.getElementById("name").value = localStorage.getItem("savedName");
+    }
+    if (localStorage.getItem("savedEmail")) {
+      document.getElementById("email").value = localStorage.getItem("savedEmail");
+    }
+  };
+  localStorage.removeItem("savedName");
+  localStorage.removeItem("savedEmail");
+
+</script>
+
+  <div class="slide-in">
+    <h3>Contact Info</h3>
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <br>
+      <h5>send us a message<br><input type="text" id="message" name="user" placeholder="enter your message here"></h5>
+  <button class="call-btn" onclick="sendMessage()">Send</button>
+    </section>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const message = document.getElementById("message").value.trim();
+
+      if (!message) {
+        alert("Please enter a message.");
+        return;
+      }
+
+      const phone = "+2348030441358";
+      const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+      const email = "royallawrenceofficial@gmail.com";
+      const subject = "Message";
+      const emailLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+      window.open(whatsappLink, '_blank');
+
+      window.location.href = emailLink;
+    }
+  </script>
+
+  <script>
+    function openAppointmentModal() {
+        document.getElementById("appointmentModal").style.display = "flex";
+      }
+
+      function closeAppointmentModal() {
+        document.getElementById("appointmentModal").style.display = "none";
+      }
+
+      window.onclick = function (e) {
+        const modal = document.getElementById("appointmentModal");
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+    document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const inputs = this.querySelectorAll("input, textarea");
+    const name = inputs[0].value.trim();
+    const phone = inputs[1].value.trim();
+    const email = inputs[2].value.trim();
+    const date = inputs[3].value.trim();
+    const reason = inputs[4].value.trim();
+
+    const message = `New Appointment Request:
+        Name: ${name}
+        Phone: ${phone}
+        Email: ${email}
+        Preferred Date: ${date}
+        Reason: ${reason}`;
+
+    const encodedMsg = encodeURIComponent(message);
+
+    const whatsappURL = `https://wa.me/2348030441358?text=${encodedMsg}`;
+    const emailURL = `mailto:royallawrenceofficial@gmail.com?subject=New Appointment Request&body=${encodedMsg}`;
+
+    window.open(whatsappURL, "_blank");
+    window.open(emailURL, "_blank");
+
+    closeAppointmentModal();
+    console.log("Form submitted, JS handled it");
+  });
+});
+
+  </script>
+
+  <div id="appointmentModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAppointmentModal()">&times;</span>
+    <h2>Set an Appointment</h2>
+    <form id="appointmentForm">
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Preferred Date" onfocus="(this.type='date')" required>
+      <textarea placeholder="Reason for appointment" required></textarea>
+      <button type="submit">Submit Appointment</button>
+    </form>
+  </div>
+</div>
+
+  <div class="slide-up">
+    <footer class="footer">
+      <div class="social-icons">
+        <a href="tel:+2348030441358" title="Call Us"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/2348030441358" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:royallawrenceofficial@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+        <p>© 2025, Royal Lawrence Vet</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener("scroll",function() {
+      const elements = document.querySelectorAll(".slide-up");
+      elements.forEach(el=> {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      })
+    })
+  </script>
+
+</body>
+</html>

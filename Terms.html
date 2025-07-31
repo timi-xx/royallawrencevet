@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="royal.jpg">
+  <title>Terms</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: verdana;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #4169e1, #4088f3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    p {
+      font-size: 13.5px;
+      letter-spacing: 1px;
+      word-spacing: 1px;
+    }
+
+    .modal {
+      background-color: white;
+      border-radius: 10px;
+      width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .modal-header small {
+      color: #888;
+      display: block;
+      margin-top: 5px;
+    }
+
+    .modal-content {
+      padding: 20px;
+      height: 200px;
+      overflow-y: auto;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn.decline {
+      background: white;
+      color: #4169e1;
+      border: 2px solid #4169e1;
+    }
+
+    .btn.decline:hover {
+      background: #f0f4ff;
+    }
+
+    .btn.accept {
+      background-color: #4169e1;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn.accept:hover {
+      background-color: #4169e1;
+    }
+
+    /* Scrollbar Styling */
+    .modal-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Terms of Service</h2>
+      <small>Last updated August 30, 2025</small>
+    </div>
+    <div class="modal-content">
+      <h3>Terms</h3>
+      <p>
+        1. We may modify these terms or any additional terms that apply to a Service, for example, reflect changes to the law or changes to our Services. You should look at the terms regularly. We'll post notice of modifications to these terms on this page.
+      </p>
+      <p>
+        2. Discounts on the Royal Solution products are solely based on quantities. There are no discounts on the Royal Combact products.
+      </p>
+      <p>
+        3. Goods sold in condition are not returnable.
+      </p>
+      <p style="color:#423e3e;">
+        If there is a conflict between these terms and the additional terms, the additional terms will control for that conflict.
+      </p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn decline">Decline</button>
+<button class="btn accept" onclick="window.history.back()">Accept</button>
+    </div>
+  </div>
+
+</body>
+</html>
+
