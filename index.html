@@ -32,7 +32,7 @@ html {
 }
 .site-header {
   background:#4169E1;
-  padding: 20px;
+  padding: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,13 +41,15 @@ html {
 }
 
 .logo {
-  padding: 20px 35px;
+  padding: 35px;
   border: 2px solid white;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 25px;
   text-transform: uppercase;
   border-radius: 2px;
+  margin-right: 55px;
+
 }
 
 .logo-img {
@@ -81,7 +83,7 @@ nav ul li a {
   padding: 15px 30px;
     border: none;
   font-weight: 650;
-    font-size: 15px;
+    font-size: 25px;
     margin-top: 20px;
     border-radius: 70px;
   text-shadow: none;
@@ -98,7 +100,7 @@ nav ul li a {
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 80px;
 }
 
 .hero button {
@@ -107,7 +109,7 @@ nav ul li a {
   border: none;
   color: #fff;
   font-weight: 650;
-  font-size: 15px;
+  font-size: 25px;
   margin-top: 20px;
   border-radius: 70px;
 }
@@ -127,6 +129,7 @@ h2 {
   position: relative;
   display: inline-block;
   margin-bottom: 30px;
+  font-size: 40px;
 }
 
 h3 {
@@ -136,12 +139,12 @@ h3 {
   display: inline-block;
   margin-bottom: 30px;
   padding: 20px 20px;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 800;
 }
 
 p {
-  font-size: 1vw;
+  font-size: 22px;
   font-family: verdana;
   font-weight: light;
   word-spacing: 1px;
@@ -158,6 +161,7 @@ p {
   padding: 15px;
   border: none;
   margin-top: 20px;
+  font-size: 25px;
 }
 
 .slide-in {
@@ -216,6 +220,7 @@ p {
   border-radius: 3px;
   text-shadow: 1px 1px 1px rgb(151, 151, 151);
   cursor: pointer;
+  font-size: 25px;
 }
 
 .contact {
@@ -436,6 +441,167 @@ p {
       background-color: #f1f1f1;
       margin-top: 40px;
     }
+
+.site-header {
+  width: 100%;
+  background: #4169E1;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  justify-content: space-between;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  justify-content: space-between;
+}
+
+.brand { display:flex; align-items:center; gap:.6rem; }
+.logo { height:42px; width:auto; }
+
+.main-nav ul {
+  display:flex;
+  gap:1.2rem;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.main-nav a {
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  padding:.4rem .6rem;
+  border-radius:6px;
+  font-size: 25px;
+}
+
+.hamburger {
+  display:none;
+  width:74px;
+  height:60px;
+  border:0;
+  background:transparent;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  padding:0;
+  margin-left: 55px;
+}
+.hamburger .line {
+  display:block;
+  width:22px;
+  height:8px;
+  margin:4px 0;
+  background:#fff;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+@media (max-width: 992px) {
+  .hamburger { display:flex; }
+
+  .main-nav {
+    position: absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background: #4169e1;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform-origin: top right;
+    transform: scaleY(0);
+    transition: transform .18s ease;
+    overflow:hidden;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    padding: .8rem 1rem;
+    gap: .6rem;
+  }
+  .main-nav a { display:block; padding:.75rem; }
+
+  .main-nav.open {
+    transform: scaleY(1);
+  }
+
+  .hamburger.open .line1 { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open .line2 { opacity: 0; transform: scaleX(0); }
+  .hamburger.open .line3 { transform: translateY(-6px) rotate(-45deg); }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display:flex; }
+
+  .main-nav {
+    position: absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background: #4169e1;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform-origin: top right;
+    transform: scaleY(0);
+    transition: transform .18s ease;
+    overflow:hidden;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    padding: .8rem 1rem;
+    gap: .6rem;
+  }
+  .main-nav a { display:block; padding:.75rem; }
+
+  .main-nav.open {
+    transform: scaleY(1);
+  }
+
+  .hamburger.open .line1 { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open .line2 { opacity: 0; transform: scaleX(0); }
+  .hamburger.open .line3 { transform: translateY(-6px) rotate(-45deg); }
+}
+
+@media (max-width: 600px) {
+  .hamburger { display:flex; }
+
+  .main-nav {
+    position: absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background: #4169e1;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform-origin: top right;
+    transform: scaleY(0);
+    transition: transform .18s ease;
+    overflow:hidden;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    padding: .8rem 1rem;
+    gap: .6rem;
+  }
+  .main-nav a { display:block; padding:.75rem; }
+
+  .main-nav.open {
+    transform: scaleY(1);
+  }
+
+  .hamburger.open .line1 { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open .line2 { opacity: 0; transform: scaleX(0); }
+  .hamburger.open .line3 { transform: translateY(-6px) rotate(-45deg); }
+}
+
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
   </style>
 </head>
 <body>
@@ -444,18 +610,27 @@ p {
       alert("Best view : Landscape (rotate your device)")
     }
   </script>
+
 <header class="site-header">
+  <div class="header-inner">
     <div class="logo">ROYAL LAWRENCE VETERINARY</div>
     <img src="RL LOGO.png" alt="vet logo" class="slide-down-icon">
-    <nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul>
-        <li><a href="#logo">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
   <script>
     window.addEventListener("scroll",function() {
@@ -798,5 +973,34 @@ p {
     })
   </script>
 
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.classList.toggle('open');
+          nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            if (nav.classList.contains('open')) {
+              nav.classList.remove('open');
+              btn.classList.remove('open');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+        document.addEventListener('click', (e) => {
+          if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains('open')) {
+            nav.classList.remove('open');
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    </script>
 </body>
 </html>
