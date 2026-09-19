@@ -109,14 +109,36 @@
       border-radius: 10px;
     }
 
+    :root { --navy: #103b91; --ink: #14213d; --line: #dce5f4; }
+    body { min-width: 320px; min-height: 100vh; height: auto; padding: 24px 16px; background: linear-gradient(135deg, #edf4ff, #ffffff); color: var(--ink); }
+    .modal { width: min(680px, 100%); max-height: min(760px, calc(100vh - 48px)); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 18px 50px rgba(20,45,90,.14); }
+    .modal-header { padding: clamp(20px, 5vw, 32px); background: var(--navy); color: white; }
+    .modal-header small { color: #d5e2ff; }
+    .modal-content { height: min(420px, 52vh); padding: clamp(20px, 5vw, 32px); font-size: 1rem; line-height: 1.7; }
+    .modal-content p { font-size: 1rem; letter-spacing: 0; line-height: 1.7; }
+    .modal-actions { padding: 16px clamp(20px, 5vw, 32px); }
+    .btn { min-height: 44px; padding: 10px 18px; }
+    .btn.accept { background: #f5b841; color: var(--ink); }
+    .terms-note { color: #423e3e; }
+    .page-loader { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; background: #f7faff; transition: opacity .35s ease, visibility .35s ease; }
+    .page-loader.is-ready { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-card { width: min(360px, calc(100% - 40px)); padding: 24px; border-radius: 14px; background: white; box-shadow: 0 18px 50px rgba(20,45,90,.14); }
+    .skeleton { height: 14px; margin: 12px 0; border-radius: 99px; background: linear-gradient(90deg,#e4ebf8 25%,#f7faff 50%,#e4ebf8 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
+    .skeleton.title { width: 65%; height: 24px; } .skeleton.short { width: 42%; }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+    @media (max-width: 480px) { .modal-actions { gap: 10px; } .btn { flex: 1; } }
+
   </style>
 </head>
 <body>
+  <div class="page-loader" id="pageLoader" aria-label="Loading terms">
+    <div class="loader-card" aria-hidden="true"><div class="skeleton title"></div><div class="skeleton"></div><div class="skeleton short"></div></div>
+  </div>
 
   <div class="modal">
     <div class="modal-header">
       <h2>Terms of Service</h2>
-      <small>Last updated August 30, 2025</small>
+      <small>Last updated September 19, 2026</small>
     </div>
     <div class="modal-content">
       <h3>Terms</h3>
@@ -124,12 +146,15 @@
         1. We may modify these terms or any additional terms that apply to a Service, for example, reflect changes to the law or changes to our Services. You should look at the terms regularly. We'll post notice of modifications to these terms on this page.
       </p>
       <p>
-        2. Discounts on the Royal Solution products are solely based on quantities. There are no discounts on the Royal Combact products.
+        2. Discounts on the Solution-C, Solution-E and Royal Solution products are solely based on quantities. There are no discounts on the Royal Combact products.
       </p>
       <p>
-        3. Goods sold in condition are not returnable.
+        3. 50% of the total amount must be paid in advance before the order is processed. The remaining 50% must be paid upon delivery or at an agreed time.
       </p>
-      <p style="color:#423e3e;">
+      <p>
+        4. Goods sold in good condition are not returnable.
+      </p>
+      <p class="terms-note">
         If there is a conflict between these terms and the additional terms, the additional terms will control for that conflict.
       </p>
     </div>
@@ -140,5 +165,6 @@
   </div>
 
 </body>
+<script>window.addEventListener("load", () => document.getElementById("pageLoader")?.classList.add("is-ready"));</script>
 </html>
 
