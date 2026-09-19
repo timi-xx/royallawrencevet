@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width,initial-scale=0.5">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <title>Royal Lawrence Vet</title>
   <link rel="icon" href="royal.jpg">
@@ -602,19 +602,114 @@ p {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
+
+.testimonials-section { padding:100px 0; background: linear-gradient(135deg, var(--primary), #4169e1); color:white; text-align:center; }
+        .testimonials-section h2 { color:black; border-bottom: 3px solid white; }
+        .testimonials-section h2:after { background:white; }
+        .testimonial-container { max-width:800px; margin:50px auto 0; padding:0 20px; }
+        .testimonial { background:#4169e1; border-radius:10px; padding:40px; margin:20px 0; }
+        .testimonial-text { font-style: italic; font-size:1.1rem; margin-bottom:20px; position:relative; }
+        .testimonial-text:before, .testimonial-text:after { content:'"'; font-size:3rem; color:#4169e1; position:absolute; }
+        .testimonial-text:before { top:-20px; left:-15px; }
+        .testimonial-text:after { content:'"'; bottom:-40px; right:-15px; }
+        .testimonial-author { font-weight:600; font-size:1.1rem; color:white; }
+
+        :root { --primary: #1959d1; --primary-dark: #103b91; --ink: #14213d; --muted: #5d6b82; --soft: #eef4ff; --line: #dce5f4; --shadow: 0 18px 50px rgba(20,45,90,.12); }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { min-width: 320px; min-height: 100vh; padding: 0; color: var(--ink); background: #f7faff; font-family: "Segoe UI", system-ui, sans-serif; }
+        body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(135deg, rgba(240,247,255,.96), rgba(255,255,255,.85)), url("RL banner.png") center / cover; }
+        .site-header { background: rgba(16,59,145,.96); padding: 0; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+        .header-inner { width: min(1180px, calc(100% - 32px)); min-height: 76px; padding: .75rem 0; }
+        .logo { padding: 0; border: 0; margin: 0; font-size: clamp(.9rem, 2vw, 1.15rem); letter-spacing: .04em; }
+        .slide-down-icon { width: 48px; height: 48px; object-fit: contain; }
+        .main-nav a { font-size: .98rem; }
+        .hero { min-height: min(720px, 82vh); height: auto; padding: clamp(88px, 13vw, 170px) max(5%, 24px); background: linear-gradient(90deg, rgba(6,25,65,.84), rgba(6,25,65,.25)), url("RL banner.png") center / cover; }
+        .hero h1 { margin: 0; font-size: clamp(2.8rem, 7vw, 6.8rem); line-height: .98; letter-spacing: -.04em; }
+        .set { margin-top: 2rem; } .set li { display: block; }
+        .set li a, .call-btn, .hero button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .8rem 1.2rem; border-radius: 10px; background: #f5b841; color: #17243e; font-size: 1rem; font-weight: 750; text-shadow: none; }
+        .about, .services, .contact { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: clamp(52px, 8vw, 96px) clamp(20px, 5vw, 64px); background: rgba(255,255,255,.9); box-shadow: var(--shadow); }
+        .section-block { width: min(1180px, calc(100% - 32px)); margin: clamp(24px, 5vw, 56px) auto 0; }
+        .section-heading { display: flex; align-items: center; gap: 14px; margin: 0; padding: 0 0 14px; color: var(--primary-dark); font-size: clamp(1.35rem, 3vw, 2rem); letter-spacing: .02em; }
+        .section-heading::before { content: ""; width: 38px; height: 4px; flex: 0 0 auto; border-radius: 99px; background: #f5b841; }
+        .section-block > .about, .section-block > .services, .section-block > .contact { width: 100%; }
+        h2 { margin: 0 0 1.2rem; color: var(--ink); border-bottom: 3px solid #f5b841; font-size: clamp(1.7rem, 3vw, 2.5rem); }
+        h3 { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: clamp(38px, 6vw, 68px) 0 0; color: var(--primary-dark); border: 0; font-size: clamp(1.5rem, 3vw, 2.3rem); }
+        p { max-width: 70ch; color: var(--muted); font-family: inherit; font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.75; letter-spacing: 0; }
+        .services > li { display: inline-block; vertical-align: top; width: calc(50% - 14px); min-height: 160px; margin: 0 20px 20px 0; padding: 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; list-style: none; } .services > li:nth-of-type(2) { margin-right: 0; }
+        .services > li h2 { font-size: clamp(1.2rem, 2vw, 1.7rem); }
+        .services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .services > li { display: grid; grid-template-columns: 72px 1fr; gap: 18px; width: auto; min-height: 0; margin: 0; align-items: center; }
+        .services > li h2, .services > li p { grid-column: 2; }
+        .service-image { grid-row: 1 / span 3; width: 72px; height: 72px; object-fit: contain; padding: 8px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
+        .services > .call-btn { grid-column: 1 / -1; justify-self: start; margin: 4px 0 0; }
+        .testimonials-section { padding: clamp(54px, 8vw, 100px) 16px; background: var(--primary-dark); } .testimonial-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1180px; margin: 36px auto 0; padding: 0; } .testimonial { height: 100%; margin: 0; padding: 28px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); } .testimonial p { color: #e8efff; } .testimonial-author { color: #ffd166 !important; }
+        .footer { margin-top: 0; background: #0e1c38; color: white; } .footer p { color: #cbd7ef; } .social-icons a { color: white; }
+        .Omodal, .modal { padding: 16px; background: rgba(5,18,45,.78); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); } .Omodal-content, .modal-content { width: min(680px, 100%); max-height: 92vh; padding: clamp(20px, 4vw, 36px); border-radius: 16px; }
+        .form-row { flex-wrap: wrap; } .form-row > * { min-width: 0; flex: 1 1 220px; } input, textarea, select { border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+        .page-loader { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: #f7faff; transition: opacity .35s ease, visibility .35s ease; } .page-loader.is-ready { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-card { width: min(360px, calc(100% - 40px)); padding: 24px; border-radius: 14px; background: white; box-shadow: var(--shadow); } .skeleton { height: 14px; margin: 12px 0; border-radius: 99px; background: linear-gradient(90deg,#e4ebf8 25%,#f7faff 50%,#e4ebf8 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; } .skeleton.title { width: 65%; height: 24px; } .skeleton.short { width: 42%; } @keyframes shimmer { to { background-position: -200% 0; } }
+        @media (max-width: 760px) { .testimonial-container { grid-template-columns: 1fr; } .services > li { display: block; width: 100%; margin: 0 0 16px; } .hero { min-height: 620px; } }
+        @media (max-width: 600px) {
+          html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+          .header-inner { width: calc(100% - 24px); min-height: 64px; gap: .5rem; }
+          .logo { max-width: 190px; font-size: .8rem; line-height: 1.15; }
+          .slide-down-icon { width: 38px; height: 38px; }
+          .hamburger { width: 44px; height: 44px; margin-left: auto; }
+          .main-nav ul { padding: .65rem .75rem; gap: .25rem; }
+          .main-nav a { padding: .65rem .75rem; font-size: .9rem; }
+          .hero { min-height: 560px; padding: 92px 20px 72px; }
+          .hero h1 { font-size: clamp(2.35rem, 13vw, 4rem); }
+          .section-block { width: calc(100% - 24px); margin-top: 24px; }
+          .section-heading { gap: 10px; padding-bottom: 10px; font-size: 1.3rem; }
+          .section-heading::before { width: 28px; height: 3px; }
+          .about, .services, .contact { width: 100%; padding: 42px 18px; }
+          .services { grid-template-columns: 1fr; gap: 16px; }
+          .services > li { grid-template-columns: 58px minmax(0, 1fr); gap: 12px; padding: 18px; }
+          .service-image { width: 58px; height: 58px; }
+          .services > li h2 { font-size: 1.15rem; overflow-wrap: anywhere; }
+          .services > li p { margin: .25rem 0; font-size: .94rem; }
+          .services > .call-btn { width: 100%; }
+          .testimonial-container { padding: 0; }
+          .testimonial { padding: 20px; }
+          .product { align-items: stretch; display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+          .product > label:first-child { grid-column: 1 / -1; }
+          .product .size-picker, .product .quantity, .product > span { align-self: center; }
+          .product > span { text-align: right; }
+          .Omodal, .modal { padding: 8px; }
+          .Omodal-content, .modal-content { width: 100%; max-height: 94vh; padding: 20px 16px; }
+          .form-row { display: block; }
+          .form-row > *, .modal-content input, .modal-content textarea { display: block; width: 100%; margin: 8px 0; }
+          .modal-content h2, .Omodal-content h2 { font-size: 1.45rem; }
+        }
+        .order-shell { display: grid; gap: 24px; }
+        .order-heading { padding-right: 36px; }
+        .order-heading p { margin: 6px 0 0; font-size: .95rem; }
+        .order-products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .order-product { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: #f8fbff; }
+        .order-product-image { grid-row: 1 / span 3; width: 52px; height: 52px; padding: 5px; object-fit: contain; border-radius: 10px; background: white; border: 1px solid var(--line); }
+        .order-product-name { margin: 0; font-size: 1rem; }
+        .order-product-price { margin: 3px 0 8px; color: var(--primary); font-size: .9rem; font-weight: 750; }
+        .order-product-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .order-product-controls select { min-height: 34px; padding: 5px 8px; color: var(--ink); background: white; }
+        .quantity { margin-top: 0; }
+        .quantity button { width: 30px; height: 30px; border-radius: 8px; }
+        .quantity input { width: 32px; height: 30px; margin: 0; }
+        .order-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 12px; background: var(--primary-dark); color: white; }
+        .order-summary strong { color: #ffd166; font-size: 1.25rem; }
+        @media (max-width: 600px) { .order-products { grid-template-columns: 1fr; } .order-product { grid-template-columns: 52px minmax(0, 1fr); } .order-summary { align-items: flex-start; flex-direction: column; gap: 4px; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
-  <script>
-    window.onload = function() {
-      alert("Best view : Landscape (rotate your device)")
-    }
-  </script>
+  <div class="page-loader" id="pageLoader" aria-label="Loading page">
+    <div class="loader-card" aria-hidden="true"><div class="skeleton title"></div><div class="skeleton"></div><div class="skeleton short"></div></div>
+  </div>
 
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">ROYAL LAWRENCE VETERINARY</div>
-    <img src="RL LOGO.png" alt="vet logo" class="slide-down-icon">
+    <img src="RL LOGO.png" alt="Royal Lawrence logo" class="slide-down-icon" loading="lazy" decoding="async">
 
     <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
       <span class="line line1"></span>
@@ -652,8 +747,8 @@ p {
       </div>
     </div>
   </section>
-  <div class="slide-in">
-    <h3>About</h3>
+  <div class="slide-in section-block">
+    <h3 class="section-heading">About</h3>
     <section class="about" id="about">
       <h2 class="slide-in">What we offer</h2>
       <p class="slide-in">Broad spectrum antibiotics, vitamins and supplements including...
@@ -663,6 +758,31 @@ p {
         specialize in the
         selling of imported animal feeds,additives,medication and essentials.</p>
       <button class="call-btn">For emergencies call: +234-803-044-1358</button>
+    </section>
+  </div>
+
+  <div class="slide-in">
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">Royal Combact has been a game changer for our farms, Over 600 of our chickens were saved last year while struggling with recurring infections and high mortality rates.</p>
+                    <p class="testimonial-author">- Dr Kemi ( Obasanjo Farms )</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">As someone who cares about quality, i was impressed with the consistency and effectiveness of Royal Combact. And its now a part of our regular treatment routine.</p>
+                    <p class="testimonial-author">- Dr Taiwo</p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">Royal (cure) Solution is very reliable, works better and costs less.</p>
+                    <p class="testimonial-author">- Summed Vet. PH</p>
+                </div>
+
+            </div>
+        </div>
     </section>
   </div>
 
@@ -678,19 +798,35 @@ p {
     })
   </script>
 
-  <div class="slide-in">
-    <h3>Services</h3>
+  <div class="slide-in section-block">
+    <h3 class="section-heading">Services</h3>
     <section class="services" id="services">
       <li>
-        <h2>Royal Combact</h2>
+        <img class="service-image" src="Royal Combact.png" alt="Royal Super Combact product" loading="lazy" decoding="async" width="72" height="72">
+        <h2>Royal (Super) Combact</h2>
         <p>Available In - [200ml - 5L]</p>
-        <p>Prices range from &#8358;849.99 - &#8358;8,199.99</p>
+        <p>Prices range from &#8358;1,000 - &#8358;7,500</p>
       </li>
 
       <li>
-        <h2>Royal Solution</h2>
+        <img class="service-image" src="Solution-C.png" alt="Solution-C product" loading="lazy" decoding="async" width="72" height="72">
+        <h2>Solution-C</h2>
+        <p>Available In - [500ml & 5L only]</p>
+        <p>Prices range from &#8358;1,000 - &#8358;9,000</p>
+      </li>
+
+      <li>
+        <img class="service-image" src="Solution-E.png" alt="Solution-E product" loading="lazy" decoding="async" width="72" height="72">
+        <h2>Solution-E</h2>
+        <p>Available In - [500ml & 5L only]</p>
+        <p>Prices range from &#8358;1,000 - &#8358;9,000</p>
+      </li>
+
+      <li>
+        <img class="service-image" src="Royal Solution.png" alt="Royal Cure Solution product" loading="lazy" decoding="async" width="72" height="72">
+        <h2>Royal (Cure) Solution</h2>
         <p>Available In - [200ml - 5L]</p>
-        <p>Prices range from &#8358;499.99 - &#8358;4,199.99</p>
+        <p>Prices range from &#8358;800 - &#8358;5,000</p>
       </li>
       <button class="call-btn" onclick="openOrderModal()">Order Now</button>
     </section>
@@ -699,45 +835,50 @@ p {
   <div id="orderModal" class="Omodal">
     <div class="Omodal-content">
       <span class="close-btn" onclick="closeOrderModal()">&times;</span>
-      <form id="orderForm">
-        <h2>Select Products</h2>
-        <div class="product">
-          <label><input type="checkbox" class="product-check" data-index="0" /> Royal Solution</label>
-          <button type="button" onclick="changeQty(0, -1)">
-            <select id="size">
-              <option>200ml</option>
-              <option>500ml</option>
-              <option>1L</option>
-              <option>2L</option>
-              <option>5L</option>
-            </select>
-          </button>
-          <div class="quantity">
-            <button type="button" onclick="changeQty(0, -1)">-</button>
-            <input type="text" id="qty0" value="0" readonly />
-            <button type="button" onclick="changeQty(0, 1)">+</button>
-          </div>
-          <span>&#8358;499.99</span>
+      <form id="orderForm" class="order-shell">
+        <div class="order-heading">
+          <h2>Build your order</h2>
+          <p>Select one or more products, choose a size, and tell us where to deliver.</p>
         </div>
-        <div class="product">
-          <label><input type="checkbox" class="product-check" data-index="1" /> Royal Combact</label>
-          <button type="button" onclick="changeQty(0, -1)">
-            <select id="size">
-              <option>200ml</option>
-              <option>500ml</option>
-              <option>1L</option>
-              <option>2L</option>
-              <option>5L</option>
-            </select>
-          </button>
-          <div class="quantity">
-            <button type="button" onclick="changeQty(1, -1)">-</button>
-            <input type="text" id="qty1" value="0" readonly />
-            <button type="button" onclick="changeQty(1, 1)">+</button>
-          </div>
-          <span>&#8358;849.99</span>
+        <div class="order-products">
+          <article class="order-product">
+            <img class="order-product-image" src="Royal Combact.png" alt="Royal Super Combact" loading="lazy" width="52" height="52">
+            <label><input type="checkbox" class="product-check" data-index="0"> <strong class="order-product-name">Royal Super Combact</strong></label>
+            <p class="order-product-price">From &#8358;1,000</p>
+            <div class="order-product-controls">
+              <label>Size <select class="size" title="Royal Super Combact size"><option data-price="1000">200ml</option><option data-price="1800">500ml</option><option data-price="3000">1L</option><option data-price="4800">2L</option><option data-price="7500">5L</option></select></label>
+              <div class="quantity"><button type="button" onclick="changeQty(0, -1)" aria-label="Decrease Royal Super Combact quantity">-</button><input type="text" id="qty0" value="0" readonly aria-label="Royal Super Combact quantity"><button type="button" onclick="changeQty(0, 1)" aria-label="Increase Royal Super Combact quantity">+</button></div>
+            </div>
+          </article>
+          <article class="order-product">
+            <img class="order-product-image" src="Solution-C.png" alt="Solution-C" loading="lazy" width="52" height="52">
+            <label><input type="checkbox" class="product-check" data-index="1"> <strong class="order-product-name">Solution-C</strong></label>
+            <p class="order-product-price">From &#8358;1,000</p>
+            <div class="order-product-controls">
+              <label>Size <select class="size" title="Solution-C size"><option data-price="1000">500ml</option><option data-price="9000">5L</option></select></label>
+              <div class="quantity"><button type="button" onclick="changeQty(1, -1)" aria-label="Decrease Solution-C quantity">-</button><input type="text" id="qty1" value="0" readonly aria-label="Solution-C quantity"><button type="button" onclick="changeQty(1, 1)" aria-label="Increase Solution-C quantity">+</button></div>
+            </div>
+          </article>
+          <article class="order-product">
+            <img class="order-product-image" src="Solution-E.png" alt="Solution-E" loading="lazy" width="52" height="52">
+            <label><input type="checkbox" class="product-check" data-index="2"> <strong class="order-product-name">Solution-E</strong></label>
+            <p class="order-product-price">From &#8358;1,000</p>
+            <div class="order-product-controls">
+              <label>Size <select class="size" title="Solution-E size"><option data-price="1000">500ml</option><option data-price="9000">5L</option></select></label>
+              <div class="quantity"><button type="button" onclick="changeQty(2, -1)" aria-label="Decrease Solution-E quantity">-</button><input type="text" id="qty2" value="0" readonly aria-label="Solution-E quantity"><button type="button" onclick="changeQty(2, 1)" aria-label="Increase Solution-E quantity">+</button></div>
+            </div>
+          </article>
+          <article class="order-product">
+            <img class="order-product-image" src="Royal Solution.png" alt="Royal Cure Solution" loading="lazy" width="52" height="52">
+            <label><input type="checkbox" class="product-check" data-index="3"> <strong class="order-product-name">Royal Cure Solution</strong></label>
+            <p class="order-product-price">From &#8358;800</p>
+            <div class="order-product-controls">
+              <label>Size <select class="size" title="Royal Cure Solution size"><option data-price="800">200ml</option><option data-price="1400">500ml</option><option data-price="2200">1L</option><option data-price="3400">2L</option><option data-price="5000">5L</option></select></label>
+              <div class="quantity"><button type="button" onclick="changeQty(3, -1)" aria-label="Decrease Royal Cure Solution quantity">-</button><input type="text" id="qty3" value="0" readonly aria-label="Royal Cure Solution quantity"><button type="button" onclick="changeQty(3, 1)" aria-label="Increase Royal Cure Solution quantity">+</button></div>
+            </div>
+          </article>
         </div>
-        <div class="total">Total: <strong id="totalAmount">&#8358;0.00</strong></div>
+        <div class="order-summary"><span>Estimated order total</span><strong id="totalAmount">&#8358;0.00</strong></div>
         <div class="form-row">
           <input type="text" placeholder="First Name" required autocomplete="on" />
           <input type="text" placeholder="Last Name" required autocomplete="on" />
@@ -757,14 +898,13 @@ p {
         <div class="terms">
           <label><input type="checkbox" required /> <a href="Terms.html">I agree to Terms of Service and Privacy Policy.</a></label>
         </div>
-        <button type="submit">Submit Order</button>
+        <button type="submit">Send Order Request</button>
       </form>
     </div>
   </div>
 
   <script>
-    const prices = [499.99, 849.99,];
-    let quantities = [0, 0,];
+    let quantities = [0, 0, 0, 0];
 
     function openOrderModal() {
       document.getElementById("orderModal").style.display = "flex";
@@ -789,17 +929,22 @@ p {
       calculateTotal();
     }
 
+    function getUnitPrice(product) {
+      return Number(product.querySelector(".size option:checked").dataset.price || 0);
+    }
+
     function calculateTotal() {
       let total = 0;
       document.querySelectorAll(".product-check").forEach((check, i) => {
+        const product = check.closest(".order-product");
         if (check.checked) {
-          total += prices[i] * quantities[i];
+          total += getUnitPrice(product) * quantities[i];
         } else {
           quantities[i] = 0;
           document.getElementById("qty" + i).value = 0;
         }
       });
-      document.getElementById("totalAmount").textContent =  total.toFixed(2); + "Naira";
+      document.getElementById("totalAmount").textContent = `₦${total.toLocaleString("en-NG", { minimumFractionDigits: 2 })}`;
     }
 
     document.getElementById("orderForm").addEventListener("submit", function(e) {
@@ -809,14 +954,17 @@ p {
   const orderLines = [];
   checks.forEach((check, i) => {
     if (check.checked && quantities[i] > 0) {
-      orderLines.push(`${check.parentElement.textContent.trim()}: Qty ${quantities[i]} = &#8358;${(prices[i] * quantities[i]).toFixed(2)}`);
+      const product = check.closest(".order-product");
+      const name = product.querySelector(".order-product-name").textContent.trim();
+      const size = product.querySelector(".size").value;
+      orderLines.push(`${name} (${size}): Qty ${quantities[i]} = N${(getUnitPrice(product) * quantities[i]).toFixed(2)}`);
     }
   });
 
   const fields = document.querySelectorAll("#orderForm input");
   const formData = Array.from(fields).map(f => `${f.placeholder || f.name}: ${f.value.trim()}`).join("\n");
 
-  const message = `Customer Info:${formData}`;
+  const message = `Order Items:\n${orderLines.join("\n") || "No products selected"}\n\nCustomer Info:\n${formData}`;
 
   const encodedMsg = encodeURIComponent(message);
 
@@ -829,32 +977,22 @@ p {
 
   closeOrderModal();
 });
+
+    document.querySelectorAll(".product-check").forEach((control, index) => {
+      control.addEventListener("change", () => {
+        quantities[index] = control.checked ? Math.max(1, quantities[index]) : 0;
+        document.getElementById("qty" + index).value = quantities[index];
+        calculateTotal();
+      });
+    });
+
+    document.querySelectorAll(".size").forEach(control => {
+      control.addEventListener("change", calculateTotal);
+    });
 </script>
 
-<script>
-  document.getElementById("name").addEventListener("input", function () {
-    localStorage.setItem("savedName", this.value);
-  });
-
-  document.getElementById("email").addEventListener("input", function () {
-    localStorage.setItem("savedEmail", this.value);
-  });
-
-  window.onload = function () {
-    if (localStorage.getItem("savedName")) {
-      document.getElementById("name").value = localStorage.getItem("savedName");
-    }
-    if (localStorage.getItem("savedEmail")) {
-      document.getElementById("email").value = localStorage.getItem("savedEmail");
-    }
-  };
-  localStorage.removeItem("savedName");
-  localStorage.removeItem("savedEmail");
-
-</script>
-
-  <div class="slide-in">
-    <h3>Contact Info</h3>
+  <div class="slide-in section-block">
+    <h3 class="section-heading">Contact</h3>
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
       <br>
@@ -1003,4 +1141,5 @@ p {
       });
     </script>
 </body>
+<script>window.addEventListener("load", () => document.getElementById("pageLoader")?.classList.add("is-ready"));</script>
 </html>
