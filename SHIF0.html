@@ -24,11 +24,10 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   padding: 25px;
-  background-attachment: fixed;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 .site-header {
   background:#4169E1;
@@ -169,41 +168,6 @@ select.size {
   padding: 15px;
   border: none;
   margin-top: 20px;
-}
-
-.slide-in {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.8s ease;
-}
-
-.slide-in.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(100px);
-  transition: all 0.8s ease;
-}
-
-.slide-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-down-icon {
-  opacity: 0;
-  transform: translateY(-100px);
-  transition: all 0.8s ease;
-  width: 40px;
-  height: auto;
-}
-
-.slide-down-icon.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .contact {
@@ -427,7 +391,6 @@ select.size {
       font-size: 24px;
       margin: 0 10px;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
     .social-icons a:hover {
       color: #4169e1;
@@ -448,13 +411,13 @@ select.size {
 
   :root { --primary: #1959d1; --primary-dark: #103b91; --ink: #14213d; --muted: #5d6b82; --soft: #eef4ff; --line: #dce5f4; --shadow: 0 18px 50px rgba(20,45,90,.12); }
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: auto; }
   body { min-width: 320px; min-height: 100vh; padding: 0; color: var(--ink); background: #f7faff; font-family: "Segoe UI", system-ui, sans-serif; }
   body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(135deg, rgba(240,247,255,.96), rgba(255,255,255,.85)), url("RL banner.png") center / cover; }
   .site-header { background: rgba(16,59,145,.96); padding: 0; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
   .header-inner { width: min(1180px, calc(100% - 32px)); min-height: 76px; padding: .75rem 0; }
   .logo { padding: 0; border: 0; font-size: clamp(.9rem, 2vw, 1.15rem); letter-spacing: .04em; }
-  .slide-down-icon { width: 48px; height: 48px; object-fit: contain; }
+  .site-header > img { width: 48px; height: 48px; object-fit: contain; }
   .main-nav a { font-size: .98rem; }
   .hero { min-height: min(720px, 82vh); height: auto; padding: clamp(88px, 13vw, 170px) max(5%, 24px); background: linear-gradient(90deg, rgba(6,25,65,.84), rgba(6,25,65,.25)), url("RL banner.png") center / cover; }
   .hero h1 { margin: 0; font-size: clamp(2.8rem, 7vw, 6.8rem); line-height: .98; letter-spacing: -.04em; }
@@ -473,8 +436,6 @@ select.size {
   .footer { margin-top: 0; background: #0e1c38; color: white; } .footer p { color: #cbd7ef; } .social-icons a { color: white; }
   .Omodal, .modal { padding: 16px; background: rgba(5,18,45,.78); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); } .Omodal-content, .modal-content { width: min(680px, 100%); max-height: 92vh; padding: clamp(20px, 4vw, 36px); border-radius: 16px; }
   .form-row { flex-wrap: wrap; } .form-row > * { min-width: 0; flex: 1 1 220px; } input, textarea, select { border: 1px solid var(--line); border-radius: 8px; font: inherit; }
-  .page-loader { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: #f7faff; transition: opacity .35s ease, visibility .35s ease; } .page-loader.is-ready { opacity: 0; visibility: hidden; pointer-events: none; }
-  .loader-card { width: min(360px, calc(100% - 40px)); padding: 24px; border-radius: 14px; background: white; box-shadow: var(--shadow); } .skeleton { height: 14px; margin: 12px 0; border-radius: 99px; background: linear-gradient(90deg,#e4ebf8 25%,#f7faff 50%,#e4ebf8 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; } .skeleton.title { width: 65%; height: 24px; } .skeleton.short { width: 42%; } @keyframes shimmer { to { background-position: -200% 0; } }
   @media (max-width: 760px) { .services > li, .services > .service-item { display: block; width: 100%; margin: 0 0 16px; } .hero { min-height: 620px; } }
   @media (max-width: 600px) {
     html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
@@ -503,16 +464,21 @@ select.size {
     .form-row > *, .modal-content input, .modal-content textarea { display: block; width: 100%; margin: 8px 0; }
     .modal-content h2, .Omodal-content h2 { font-size: 1.45rem; }
   }
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  @media (max-width: 600px) {
+    body::before { position: absolute; background: #f7faff; }
+    .hero { background: #061941; }
+    .site-header, .Omodal, .modal { -webkit-backdrop-filter: none; backdrop-filter: none; }
+    .main-nav { display: none; transform: none; transition: none; animation: none; }
+    .main-nav.open { display: block; }
+    .about, .services, .contact, .footer { content-visibility: auto; contain-intrinsic-size: 600px; }
+  }
   </style>
 </head>
 <body>
-  <div class="page-loader" id="pageLoader" aria-label="Loading page">
-    <div class="loader-card" aria-hidden="true"><div class="skeleton title"></div><div class="skeleton"></div><div class="skeleton short"></div></div>
-  </div>
+
 <header class="site-header">
     <div class="logo">ROYAL LAWRENCE VETERINARY</div>
-    <img src="RL LOGO.png" alt="Royal Lawrence logo" class="slide-down-icon" decoding="async">
+    <img src="RL LOGO.png" alt="Royal Lawrence logo" decoding="async">
     <nav>
       <ul>
         <li><a href="#logo">Home</a></li>
@@ -525,18 +491,6 @@ select.size {
     </nav>
   </header>
 
-  <script>
-    window.addEventListener("scroll",function() {
-      const elements = document.querySelectorAll(".slide-down-icon");
-      elements.forEach(el=> {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      })
-    })
-  </script>
-
   <section class="hero">
     <div class="hero-text">
       <h1>Guaranteed Livestock<br>Health</h1>
@@ -545,10 +499,10 @@ select.size {
       </div>
     </div>
   </section>
-  <div class="slide-in">
+  <div>
     <section class="about" id="about">
-      <h2 class="slide-in">What we offer</h2>
-      <p class="slide-in">Broad spectrum antibiotics, vitamins and supplements including...
+      <h2>What we offer</h2>
+      <p>Broad spectrum antibiotics, vitamins and supplements including...
         Anti-coccidial,Bactericidal,Fungicidal and Virucidal cures and preventions of Gumboro,Fowl thyphoid,Coccidiosis,Fowl Cholera and New Castle disease of Poultry.
         As we
         also
@@ -558,19 +512,7 @@ select.size {
     </section>
   </div>
 
-  <script>
-    window.addEventListener("scroll",function() {
-      const elements = document.querySelectorAll(".slide-in");
-      elements.forEach(el=> {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      })
-    })
-  </script>
-
-  <div class="slide-in">
+  <div>
     <section class="services" id="services">
       <div class="service-item">
         <img class="service-image" src="Royal Combact.png" alt="Royal Combact product" decoding="async" width="72" height="72">
@@ -724,7 +666,7 @@ select.size {
 });
 </script>
 
-  <div class="slide-in">
+  <div>
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
       <br>
@@ -819,7 +761,7 @@ select.size {
   </div>
 </div>
 
-  <div class="slide-up">
+  <div>
     <footer class="footer">
       <div class="social-icons">
         <a href="tel:+2348030441358" title="Call Us"><i class="fas fa-phone"></i></a>
@@ -831,18 +773,5 @@ select.size {
     </footer>
   </div>
 
-  <script>
-    window.addEventListener("scroll",function() {
-      const elements = document.querySelectorAll(".slide-up");
-      elements.forEach(el=> {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      })
-    })
-  </script>
-
 </body>
-<script>document.addEventListener("DOMContentLoaded", () => document.getElementById("pageLoader")?.classList.add("is-ready"));</script>
 </html>

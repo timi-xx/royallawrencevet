@@ -24,11 +24,10 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   padding: 25px;
-  background-attachment: fixed;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 .site-header {
   background:#4169E1;
@@ -162,41 +161,6 @@ p {
   border: none;
   margin-top: 20px;
   font-size: 25px;
-}
-
-.slide-in {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.8s ease;
-}
-
-.slide-in.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(100px);
-  transition: all 0.8s ease;
-}
-
-.slide-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-down-icon {
-  opacity: 0;
-  transform: translateY(-100px);
-  transition: all 0.8s ease;
-  width: 40px;
-  height: auto;
-}
-
-.slide-down-icon.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .contact {
@@ -430,7 +394,6 @@ p {
       font-size: 24px;
       margin: 0 10px;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
     .social-icons a:hover {
       color: #4169e1;
@@ -460,6 +423,7 @@ p {
   gap: 1rem;
   padding: 0.6rem 1rem;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .brand { display:flex; align-items:center; gap:.6rem; }
@@ -481,6 +445,44 @@ p {
   font-size: 25px;
 }
 
+.main-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 220px;
+  padding: .5rem;
+  background: #4169e1;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.main-nav.open { display: block; }
+.main-nav ul { flex-direction: column; gap: .25rem; }
+.main-nav a { display: block; }
+
+.logo-nav-toggle {
+  display: grid;
+  flex: 0 0 52px;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-left: auto;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.logo-nav-toggle img {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+.header-inner > .logo {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
 .hamburger {
   display:none;
   width:74px;
@@ -499,13 +501,13 @@ p {
   height:8px;
   margin:4px 0;
   background:#fff;
-  transition: transform .25s ease, opacity .2s ease;
 }
 
 @media (max-width: 992px) {
   .hamburger { display:flex; }
 
   .main-nav {
+    display: none;
     position: absolute;
     top:100%;
     right:0;
@@ -513,10 +515,9 @@ p {
     background: #4169e1;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transform-origin: top right;
-    transform: scaleY(0);
-    transition: transform .18s ease;
     overflow:hidden;
   }
+  .main-nav.open { display: block; }
   .main-nav ul {
     flex-direction: column;
     padding: .8rem 1rem;
@@ -524,13 +525,7 @@ p {
   }
   .main-nav a { display:block; padding:.75rem; }
 
-  .main-nav.open {
-    transform: scaleY(1);
-  }
-
-  .hamburger.open .line1 { transform: translateY(6px) rotate(45deg); }
-  .hamburger.open .line2 { opacity: 0; transform: scaleX(0); }
-  .hamburger.open .line3 { transform: translateY(-6px) rotate(-45deg); }
+  .hamburger.open .line2 { opacity: 1; }
 }
 
 @media (max-width: 768px) {
@@ -544,8 +539,6 @@ p {
     background: #4169e1;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transform-origin: top right;
-    transform: scaleY(0);
-    transition: transform .18s ease;
     overflow:hidden;
   }
   .main-nav ul {
@@ -555,13 +548,7 @@ p {
   }
   .main-nav a { display:block; padding:.75rem; }
 
-  .main-nav.open {
-    transform: scaleY(1);
-  }
-
-  .hamburger.open .line1 { transform: translateY(6px) rotate(45deg); }
-  .hamburger.open .line2 { opacity: 0; transform: scaleX(0); }
-  .hamburger.open .line3 { transform: translateY(-6px) rotate(-45deg); }
+  .hamburger.open .line2 { opacity: 1; }
 }
 
 @media (max-width: 600px) {
@@ -575,8 +562,6 @@ p {
     background: #4169e1;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transform-origin: top right;
-    transform: scaleY(0);
-    transition: transform .18s ease;
     overflow:hidden;
   }
   .main-nav ul {
@@ -586,13 +571,7 @@ p {
   }
   .main-nav a { display:block; padding:.75rem; }
 
-  .main-nav.open {
-    transform: scaleY(1);
-  }
-
-  .hamburger.open .line1 { transform: translateY(6px) rotate(45deg); }
-  .hamburger.open .line2 { opacity: 0; transform: scaleX(0); }
-  .hamburger.open .line3 { transform: translateY(-6px) rotate(-45deg); }
+  .hamburger.open .line2 { opacity: 1; }
 }
 
 .sr-only {
@@ -616,13 +595,13 @@ p {
 
         :root { --primary: #1959d1; --primary-dark: #103b91; --ink: #14213d; --muted: #5d6b82; --soft: #eef4ff; --line: #dce5f4; --shadow: 0 18px 50px rgba(20,45,90,.12); }
         *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: auto; }
         body { min-width: 320px; min-height: 100vh; padding: 0; color: var(--ink); background: #f7faff; font-family: "Segoe UI", system-ui, sans-serif; }
         body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: linear-gradient(135deg, rgba(240,247,255,.96), rgba(255,255,255,.85)), url("RL banner.png") center / cover; }
         .site-header { background: rgba(16,59,145,.96); padding: 0; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
         .header-inner { width: min(1180px, calc(100% - 32px)); min-height: 76px; padding: .75rem 0; }
         .logo { padding: 0; border: 0; margin: 0; font-size: clamp(.9rem, 2vw, 1.15rem); letter-spacing: .04em; }
-        .slide-down-icon { width: 48px; height: 48px; object-fit: contain; }
+        .header-inner > img { width: 48px; height: 48px; flex: 0 0 48px; object-fit: contain; }
         .main-nav a { font-size: .98rem; }
         .hero { min-height: min(720px, 82vh); height: auto; padding: clamp(88px, 13vw, 170px) max(5%, 24px); background: linear-gradient(90deg, rgba(6,25,65,.84), rgba(6,25,65,.25)), url("RL banner.png") center / cover; }
         .hero h1 { margin: 0; font-size: clamp(2.8rem, 7vw, 6.8rem); line-height: .98; letter-spacing: -.04em; }
@@ -647,14 +626,13 @@ p {
         .footer { margin-top: 0; background: #0e1c38; color: white; } .footer p { color: #cbd7ef; } .social-icons a { color: white; }
         .Omodal, .modal { padding: 16px; background: rgba(5,18,45,.78); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); } .Omodal-content, .modal-content { width: min(680px, 100%); max-height: 92vh; padding: clamp(20px, 4vw, 36px); border-radius: 16px; }
         .form-row { flex-wrap: wrap; } .form-row > * { min-width: 0; flex: 1 1 220px; } input, textarea, select { border: 1px solid var(--line); border-radius: 8px; font: inherit; }
-        .page-loader { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: #f7faff; transition: opacity .35s ease, visibility .35s ease; } .page-loader.is-ready { opacity: 0; visibility: hidden; pointer-events: none; }
-        .loader-card { width: min(360px, calc(100% - 40px)); padding: 24px; border-radius: 14px; background: white; box-shadow: var(--shadow); } .skeleton { height: 14px; margin: 12px 0; border-radius: 99px; background: linear-gradient(90deg,#e4ebf8 25%,#f7faff 50%,#e4ebf8 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; } .skeleton.title { width: 65%; height: 24px; } .skeleton.short { width: 42%; } @keyframes shimmer { to { background-position: -200% 0; } }
         @media (max-width: 760px) { .testimonial-container { grid-template-columns: 1fr; } .services > li { display: block; width: 100%; margin: 0 0 16px; } .hero { min-height: 620px; } }
         @media (max-width: 600px) {
           html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
           .header-inner { width: calc(100% - 24px); min-height: 64px; gap: .5rem; }
-          .logo { max-width: 190px; font-size: .8rem; line-height: 1.15; }
-          .slide-down-icon { width: 38px; height: 38px; }
+          .logo { max-width: none; font-size: clamp(.58rem, 3vw, .78rem); line-height: 1.15; }
+          .logo-nav-toggle { flex-basis: 44px; width: 44px; height: 44px; }
+          .logo-nav-toggle img { width: 36px; height: 36px; }
           .hamburger { width: 44px; height: 44px; margin-left: auto; }
           .main-nav ul { padding: .65rem .75rem; gap: .25rem; }
           .main-nav a { padding: .65rem .75rem; font-size: .9rem; }
@@ -698,23 +676,25 @@ p {
         .order-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 12px; background: var(--primary-dark); color: white; }
         .order-summary strong { color: #ffd166; font-size: 1.25rem; }
         @media (max-width: 600px) { .order-products { grid-template-columns: 1fr; } .order-product { grid-template-columns: 52px minmax(0, 1fr); } .order-summary { align-items: flex-start; flex-direction: column; gap: 4px; } }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+        @media (max-width: 600px) {
+          body::before { position: absolute; background: #f7faff; }
+          .hero { background: linear-gradient(90deg, rgba(6,25,65,.84), rgba(6,25,65,.25)), url("RL banner.png") center / cover; }
+          .site-header, .Omodal, .modal { -webkit-backdrop-filter: none; backdrop-filter: none; }
+          .hamburger .line, .main-nav { transition: none; animation: none; }
+          .main-nav { display: none; transform: none; }
+          .main-nav.open { display: block; }
+          .hamburger.open .line1, .hamburger.open .line2, .hamburger.open .line3 { opacity: 1; transform: none; }
+          .about, .services, .contact, .testimonials-section, .footer { content-visibility: auto; contain-intrinsic-size: 600px; }
+        }
   </style>
 </head>
 <body>
-  <div class="page-loader" id="pageLoader" aria-label="Loading page">
-    <div class="loader-card" aria-hidden="true"><div class="skeleton title"></div><div class="skeleton"></div><div class="skeleton short"></div></div>
-  </div>
 
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">ROYAL LAWRENCE VETERINARY</div>
-    <img src="RL LOGO.png" alt="Royal Lawrence logo" class="slide-down-icon" decoding="async">
-
-    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
-      <span class="line line1"></span>
-      <span class="line line2"></span>
-      <span class="line line3"></span>
+    <button class="logo-nav-toggle" id="logoNavToggle" aria-label="Open navigation" aria-expanded="false">
+      <img src="RL LOGO.png" alt="Open navigation" decoding="async">
     </button>
     <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul>
@@ -729,18 +709,6 @@ p {
   </div>
 </header>
 
-  <script>
-    window.addEventListener("scroll",function() {
-      const elements = document.querySelectorAll(".slide-down-icon");
-      elements.forEach(el=> {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      })
-    })
-  </script>
-
   <section class="hero">
     <div class="hero-text">
       <h1>Guaranteed Livestock<br>Health</h1>
@@ -749,11 +717,11 @@ p {
       </div>
     </div>
   </section>
-  <div class="slide-in section-block">
+  <div class="section-block">
     <h3 class="section-heading">About</h3>
     <section class="about" id="about">
-      <h2 class="slide-in">What we offer</h2>
-      <p class="slide-in">Broad spectrum antibiotics, vitamins and supplements including...
+      <h2>What we offer</h2>
+      <p>Broad spectrum antibiotics, vitamins and supplements including...
         Anti-coccidial,Bactericidal,Fungicidal and Virucidal cures and preventions of Gumboro,Fowl thyphoid,Coccidiosis,Fowl Cholera and New Castle disease of Poultry.
         As we
         also
@@ -763,7 +731,7 @@ p {
     </section>
   </div>
 
-  <div class="slide-in">
+  <div>
     <section class="testimonials-section">
         <div class="container">
             <h2>What Our Customers Say</h2>
@@ -788,19 +756,7 @@ p {
     </section>
   </div>
 
-  <script>
-    window.addEventListener("scroll",function() {
-      const elements = document.querySelectorAll(".slide-in");
-      elements.forEach(el=> {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      })
-    })
-  </script>
-
-  <div class="slide-in section-block">
+  <div class="section-block">
     <h3 class="section-heading">Services</h3>
     <section class="services" id="services">
       <li>
@@ -993,7 +949,7 @@ p {
     });
 </script>
 
-  <div class="slide-in section-block">
+  <div class="section-block">
     <h3 class="section-heading">Contact</h3>
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
@@ -1089,7 +1045,7 @@ p {
   </div>
 </div>
 
-  <div class="slide-up">
+  <div>
     <footer class="footer">
       <div class="social-icons">
         <a href="tel:+2348030441358" title="Call Us"><i class="fas fa-phone"></i></a>
@@ -1102,33 +1058,19 @@ p {
   </div>
 
   <script>
-    window.addEventListener("scroll",function() {
-      const elements = document.querySelectorAll(".slide-up");
-      elements.forEach(el=> {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          el.classList.add("visible");
-        }
-      })
-    })
-  </script>
-
-  <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('hamburger');
+        const btn = document.getElementById('logoNavToggle');
         const nav = document.getElementById('mainNav');
 
         btn.addEventListener('click', () => {
           const expanded = btn.getAttribute('aria-expanded') === 'true';
           btn.setAttribute('aria-expanded', String(!expanded));
-          btn.classList.toggle('open');
           nav.classList.toggle('open');
         });
         nav.querySelectorAll('a').forEach(a => {
           a.addEventListener('click', () => {
             if (nav.classList.contains('open')) {
               nav.classList.remove('open');
-              btn.classList.remove('open');
               btn.setAttribute('aria-expanded', 'false');
             }
           });
@@ -1136,12 +1078,10 @@ p {
         document.addEventListener('click', (e) => {
           if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains('open')) {
             nav.classList.remove('open');
-            btn.classList.remove('open');
             btn.setAttribute('aria-expanded', 'false');
           }
         });
       });
     </script>
 </body>
-<script>document.addEventListener("DOMContentLoaded", () => document.getElementById("pageLoader")?.classList.add("is-ready"));</script>
 </html>
