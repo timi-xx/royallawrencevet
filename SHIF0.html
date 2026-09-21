@@ -638,20 +638,30 @@ select.size {
     }
 
     document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+      e.preventDefault();
 
-  const checks = document.querySelectorAll(".product-check");
-  const orderLines = [];
-  checks.forEach((check, i) => {
-    if (check.checked && quantities[i] > 0) {
-      orderLines.push(`${check.parentElement.textContent.trim()}: Qty ${quantities[i]} = &#8358;${(prices[i] * quantities[i]).toFixed(2)}`);
-    }
-  });
+      const checks = document.querySelectorAll(".product-check");
+      const orderLines = [];
+      let orderTotal = 0;
+      checks.forEach((check, i) => {
+        if (check.checked && quantities[i] > 0) {
+          const product = check.closest(".product");
+          const name = check.parentElement.textContent.trim();
+          const size = product.querySelector(".size").value;
+          const lineTotal = prices[i] * quantities[i];
+          const quantityLabel = quantities[i] > 1 ? ` x${quantities[i]}` : "";
+          orderTotal += lineTotal;
+          orderLines.push(`${orderLines.length + 1}. ${name} (${size})${quantityLabel}\n     Price: ₦${lineTotal.toLocaleString("en-NG")}`);
+        }
+      });
 
-  const fields = document.querySelectorAll("#orderForm input");
-  const formData = Array.from(fields).map(f => `${f.placeholder || f.name}: ${f.value.trim()}`).join("\n");
+      const fields = document.querySelectorAll("#orderForm input");
+      const formData = Array.from(fields)
+        .filter(field => field.value.trim() && field.type !== "checkbox" && !field.closest(".quantity"))
+        .map(field => `${field.placeholder || field.name}: ${field.value.trim()}`)
+        .join("\n");
 
-  const message = `Customer Info:${formData}`;
+      const message = `Hello Royal Lawrence Veterinary,\n\nI would like to place the following order:\n\n${orderLines.join("\n\n") || "No products selected"}\n\nTOTAL: ₦${orderTotal.toLocaleString("en-NG")}\nPAYMENT METHOD: Bank transfer\n\nPlease confirm availability and the next steps for payment and delivery.${formData ? `\n\nCustomer details:\n${formData}` : ""}`;
 
   const encodedMsg = encodeURIComponent(message);
 

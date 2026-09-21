@@ -438,7 +438,7 @@ p {
 }
 .main-nav a {
   text-decoration:none;
-  color:#fff;
+  color:#000;
   font-weight:600;
   padding:.4rem .6rem;
   border-radius:6px;
@@ -452,7 +452,7 @@ p {
   right: 0;
   min-width: 220px;
   padding: .5rem;
-  background: #4169e1;
+  background: #f5b841;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 .main-nav.open { display: block; }
@@ -512,7 +512,7 @@ p {
     top:100%;
     right:0;
     left:0;
-    background: #4169e1;
+    background: #f5b841;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transform-origin: top right;
     overflow:hidden;
@@ -536,7 +536,7 @@ p {
     top:100%;
     right:0;
     left:0;
-    background: #4169e1;
+    background: #f5b841;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transform-origin: top right;
     overflow:hidden;
@@ -559,7 +559,7 @@ p {
     top:100%;
     right:0;
     left:0;
-    background: #4169e1;
+    background: #f5b841;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transform-origin: top right;
     overflow:hidden;
@@ -698,11 +698,10 @@ p {
     </button>
     <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul>
-        <li><a href="#home">Home</a></li>
+        <!-- <li><a href="#home">Home</a></li> -->
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="SHIF0.html">Products</a></li>
+        <li><a href="#services">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li><a href="Terms.html">Terms</a></li>
       </ul>
     </nav>
@@ -721,12 +720,12 @@ p {
     <h3 class="section-heading">About</h3>
     <section class="about" id="about">
       <h2>What we offer</h2>
-      <p>Broad spectrum antibiotics, vitamins and supplements including...
-        Anti-coccidial,Bactericidal,Fungicidal and Virucidal cures and preventions of Gumboro,Fowl thyphoid,Coccidiosis,Fowl Cholera and New Castle disease of Poultry.
+      <p>Medicated solutions, Broad spectrum antibiotics, essential vitamins and supplements including...
+        Anti-coccidial, Bactericidal, Fungicidal and Virucidal cures and preventions of Gumboro, Fowl thyphoid, Coccidiosis, Fowl Cholera and New Castle disease of Poultry. Solutions aiding stress especially from chilling, overheating or post vaccinations, reduction of early chick mortality or mortality due to infections susceptible to Solution-E and increase in egg production and good appetite.
         As we
         also
         specialize in the
-        selling of imported animal feeds,additives,medication and essentials.</p>
+        selling of imported poultry, poultry animal feeds, additives, medication and essentials.</p>
       <button class="call-btn">For emergencies call: +234-803-044-1358</button>
     </section>
   </div>
@@ -737,13 +736,13 @@ p {
             <h2>What Our Customers Say</h2>
             <div class="testimonial-container">
                 <div class="testimonial">
-                    <p class="testimonial-text">Royal Combact has been a game changer for our farms, Over 600 of our chickens were saved last year while struggling with recurring infections and high mortality rates.</p>
+                    <p class="testimonial-text">Solution-E has been a real game changer for our layer chickens, boosting their egg production to over 30% more than they did before Solution-E.</p>
                     <p class="testimonial-author">- Dr Kemi ( Obasanjo Farms )</p>
                 </div>
 
                 <div class="testimonial">
                     <p class="testimonial-text">As someone who cares about quality, i was impressed with the consistency and effectiveness of Royal Combact. And its now a part of our regular treatment routine.</p>
-                    <p class="testimonial-author">- Dr Taiwo</p>
+                    <p class="testimonial-author">- Dr Taiwo ( Crown Vet. )</p>
                 </div>
 
                 <div class="testimonial">
@@ -751,6 +750,11 @@ p {
                     <p class="testimonial-author">- Summed Vet. PH</p>
                 </div>
 
+                 <div class="testimonial">
+                    <p class="testimonial-text">Royal (super) Combact really turned the tides around for our farms, with over 600 of our chickens saved last year while struggling with recurring infections and high mortality rates.</p>
+                    <p class="testimonial-author">- Dr. Chi ( Animal Affairs )</p>
+                </div>
+                </p>
             </div>
         </div>
     </section>
@@ -843,14 +847,14 @@ p {
         </div>
         <input type="tel" placeholder="Phone Number" required autocomplete="on" />
         <input type="email" placeholder="Email Address" required autocomplete="on" />
-        <input type="text" placeholder="Custom Order (optional)" autocomplete="on" />
+        <input type="text" placeholder="Custom Order (recommended)" autocomplete="on" />
         <input type="text" placeholder="Shipping Address" autocomplete="on" />
         <div class="form-row">
           <input type="text" placeholder="City" autocomplete="on" />
           <input type="text" placeholder="State/Province" autocomplete="on" />
         </div>
         <div class="form-row">
-          <input type="number" placeholder="Zip Code" autocomplete="on" />
+          <input type="number" placeholder="Zip Code (optional)" autocomplete="on" />
           <input type="text" placeholder="Country" autocomplete="on" />
         </div>
         <div class="terms">
@@ -906,23 +910,30 @@ p {
     }
 
     document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+      e.preventDefault();
 
-  const checks = document.querySelectorAll(".product-check");
-  const orderLines = [];
-  checks.forEach((check, i) => {
-    if (check.checked && quantities[i] > 0) {
-      const product = check.closest(".order-product");
-      const name = product.querySelector(".order-product-name").textContent.trim();
-      const size = product.querySelector(".size").value;
-      orderLines.push(`${name} (${size}): Qty ${quantities[i]} = N${(getUnitPrice(product) * quantities[i]).toFixed(2)}`);
-    }
-  });
+      const checks = document.querySelectorAll(".product-check");
+      const orderLines = [];
+      let orderTotal = 0;
+      checks.forEach((check, i) => {
+        if (check.checked && quantities[i] > 0) {
+          const product = check.closest(".order-product");
+          const name = product.querySelector(".order-product-name").textContent.trim();
+          const size = product.querySelector(".size").value;
+          const lineTotal = getUnitPrice(product) * quantities[i];
+          const quantityLabel = quantities[i] > 1 ? ` x${quantities[i]}` : "";
+          orderTotal += lineTotal;
+          orderLines.push(`${orderLines.length + 1}. ${name} (${size})${quantityLabel}\n     Price: ₦${lineTotal.toLocaleString("en-NG")}`);
+        }
+      });
 
-  const fields = document.querySelectorAll("#orderForm input");
-  const formData = Array.from(fields).map(f => `${f.placeholder || f.name}: ${f.value.trim()}`).join("\n");
+      const fields = document.querySelectorAll("#orderForm input");
+      const formData = Array.from(fields)
+        .filter(field => field.value.trim() && field.type !== "checkbox" && !field.closest(".quantity"))
+        .map(field => `${field.placeholder || field.name}: ${field.value.trim()}`)
+        .join("\n");
 
-  const message = `Order Items:\n${orderLines.join("\n") || "No products selected"}\n\nCustomer Info:\n${formData}`;
+      const message = `Hello Royal Lawrence Veterinary,\n\nI would like to place the following order:\n\n${orderLines.join("\n\n") || "No products selected"}\n\nTOTAL: ₦${orderTotal.toLocaleString("en-NG")}\nPAYMENT METHOD: Bank transfer\n\nPlease confirm availability and the next steps for payment and delivery.${formData ? `\n\nCustomer details:\n${formData}` : ""}`;
 
   const encodedMsg = encodeURIComponent(message);
 
